@@ -45,6 +45,7 @@ input:focus {
 
 button {
     font-size: 2vw;
+    border-radius: 2vw;
     background-color: #4caf50;
     color: #fff;
     padding: 1vw;
