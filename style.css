@@ -7,49 +7,48 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; 
-}
-
-#container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 80%; 
-    width: 100%;
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
+    min-height: 100vh;
+    transform-origin: center center;
+    transform: scale(0);
+    animation: fadeInAndScale 0.5s forwards;
 }
 
 h1 {
+    font-size: 5vw;
     color: #333;
+    margin-bottom: 1vw;
 }
 
 label {
+    font-size: 1.8vw;
     display: block;
-    margin-top: 15px;
+    margin-bottom: 1vw;
+    margin-top: 1vw;
 }
 
 input {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 10px;
+    font-size: 2vw;
+    border-radius: 100vw;
+    margin: 1vw;
+    border-width: 0.5vw;
+    padding: 1vw;
+    width: calc(100% - 10px);
     box-sizing: border-box;
     transition: border-color 0.3s ease;
 }
 
-input:hover, input:focus {
+input:hover,
+input:focus {
     border-color: #4caf50;
+    outline: none;
 }
 
 button {
+    font-size: 2vw;
     background-color: #4caf50;
     color: #fff;
-    padding: 10px 20px;
+    padding: 1vw;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -59,7 +58,8 @@ button:hover {
 }
 
 p {
-    margin-top: 20px;
+    font-size: 2vw;
+    margin-top: 1vw;
     font-weight: bold;
 }
 
@@ -67,11 +67,11 @@ p {
     color: #007bff;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInAndScale {
     from {
-        opacity: 0;
+        transform: scale(0);
     }
     to {
-        opacity: 1;
+        transform: scale(0.9);
     }
 }
