@@ -1,8 +1,29 @@
-function sortAndDisplay() {
+async function sortAndDisplay() {
     let inputArray = document.getElementById("inputArray").value;
     let array = inputArray.split(",").map(function (item) { return item.trim(); });
     let sortedArray = bubbleSort(array, compareFunction);
+
+    await saveSortedArray(sortedArray);
+
     document.getElementById("sortedArray").textContent = sortedArray.join(", ");
+}
+
+async function saveSortedArray(sortedArray) {
+    try {
+        const response = await fetch('/saveSortedArray', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ sortedArray }),
+        });
+
+        if (!response.ok) {
+            throw new Error('Ошибка при сохранении в базе данных');
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
 }
 
 function bubbleSort(arr, compareFn) {
