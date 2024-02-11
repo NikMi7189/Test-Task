@@ -1,5 +1,11 @@
 async function sortAndDisplay() {
-    let inputArray = document.getElementById("inputArray").value;
+    let inputArray = document.getElementById("inputArray").value.trim();
+
+    if (inputArray === "") {
+        document.getElementById("sortedArray").textContent = "Поле ввода пусто";
+        return;
+    }
+
     let array = inputArray.split(",").map(function (item) { return item.trim(); });
     let sortedArray = bubbleSort(array, compareFunction);
 
